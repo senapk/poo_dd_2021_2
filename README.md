@@ -1,7 +1,7 @@
 # poo_dd_2021_2
 
 
-Tô dando aula para alunos muito elegantes e muito bonitos.
+Tô dando aula para alunos muito elegantes e banguelas.
 
 Eles gostam de desenhar e de pintar.
 
