@@ -1,1 +1,1 @@
-#!/bin/bash
+Banana ajuda a ter pot
