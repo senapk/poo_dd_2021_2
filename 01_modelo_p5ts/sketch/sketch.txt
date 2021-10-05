@@ -18,13 +18,13 @@ class Snake {
   vx: number;
   vy: number;
   constructor() {
-    this.body = new Cell(0, 0, color(255, 0, 0));
+    this.body = new Cell(0, 0, color("red"));
     this.vx = 1;
     this.vy = 0;
   }
 }
 
-let snake = new Snake();
+let snake: Snake;
 let cell_color: p5.Color;
 let timer = 0;
 
@@ -32,10 +32,11 @@ function setup() {
   createCanvas(NC*LADO, NL*LADO);
   frameRate(30);
   cell_color = color(20);
+  snake = new Snake();
 }
 
 function keyPressed(){
-  if (keyCode ===LEFT_ARROW) {
+  if (keyCode === LEFT_ARROW) {
     snake.vx = -1;
     snake.vy = 0;
   } else if (keyCode === RIGHT_ARROW) {
