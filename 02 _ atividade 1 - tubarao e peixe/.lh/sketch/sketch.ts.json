@@ -1,0 +1,266 @@
+{
+    "sourceFile": "sketch/sketch.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 62,
+            "patches": [
+                {
+                    "date": 1633886718028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633963688608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,6 @@\n-/// aqui a intenção é criar uma linha horizontal e vertical perfeitamente direcionadas e retas\r\n-//// repetindo a outra linha numa ordem inversa chegamos eim: \r\n \r\n-/// line(0,random(height),width,random(height)); /// aqui random(height) se repete\r\n \r\n-/// line(random(width),0,random(width),height); /// aqui random(width) se repete \r\n-\r\n-/// nesse caso tanto o y2 random(height), quanto o x2 random(width) que se repetem, parece só uma repetição,\r\n-/// pra cumprir os 4 valores orbrigatórios em x1,y1 x2,y2. Porque só de definir um valor de x1 = 0 e o valor de x2 width\r\n-/// o valor de y1 random(height) a linha já iria assumir alturas variadas, não parecendo tão necessário o  y2, tanto que se repete.\r\n-\r\n function setup() {\r\n     createCanvas(windowWidth,windowHeight);\r\n     frameRate(10)\r\n   }\r\n"
+                },
+                {
+                    "date": 1633963715862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,78 +1,56 @@\n \r\n+/// continuando aqui essa versão já a apartir do processo de instaciamento da classe\r\n \r\n-function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n-    frameRate(10)\r\n+class bichu {\r\n+  x: number;\r\n+  y: number;\r\n+  passo:number\r\n+  tub_img:p5.Image;\r\n+\r\n+  constructor(x:number, y:number, passo:number, tub:p5.Image){\r\n+    this.x = x;\r\n+    this.y = y;\r\n+    this.passo = passo;\r\n+    this.tub_img = tub_img; \r\n+ \r\n+  } \r\n+\r\n+  draw(): void{\r\n+    image(tub_img, this.x * this.passo, this.y * this.passo, this.passo, this.passo);\r\n   }\r\n-  \r\n-function draw() {\r\n-    \r\n-  ///  background(0);\r\n-    \r\n-stroke(0,255,0,500);\r\n-strokeWeight(5);\r\n-line(0,random(height),width,random(height));\r\n-  \r\n-stroke(0,0,0,500);\r\n-strokeWeight(5);\r\n-line(random(width),0,random(width),height)\r\n-    \r\n-  }\r\n+}\r\n \r\n-/// segundo a aula, substituiremos o valor repetido na linha 1 e na linha 2 por \r\n-/// uma variável, eu só não entendo como isso de forma mágica faz a linha ficar exatamente\r\n-/// reta, já que é o mesmo valor, mas apenas transformada em uma variável, ficando assim :\r\n \r\n+let tub_img:p5.Image\r\n+let tubarao:bichu;\r\n \r\n-function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n-    frameRate(2)\r\n+function preload(): void {\r\n+\r\n+  tub_img = loadImage(\r\n+    '../sketch/tub.gif',\r\n+    () => console.log(\"imagem carregada\"),\r\n+    () => console.log(\"imagem não carregada\")\r\n+  );\r\n+}\r\n+\r\n+function keyPressed(){\r\n+  if (keyCode === LEFT_ARROW){\r\n+    this.x--;\r\n+  } else if (keyCode === RIGHT_ARROW){\r\n+    this.x++;\r\n+  } else if (keyCode === UP_ARROW){\r\n+    this.y--;\r\n+  } else if( keyCode === DOWN_ARROW){\r\n+    this.y++;\r\n   }\r\n-  \r\n-function draw() {\r\n-    background(0);\r\n-    \r\n-  \r\n-stroke(0,20,50,500);\r\n-strokeWeight(5);\r\n-let L1Xlargura = random(width);\r\n-line (L1Xlargura,0,L1Xlargura,height);\r\n-  \r\n\\ No newline at end of file\n-stroke(0,255,0,500);\r\n-strokeWeight(5);\r\n-let L2Yaltura = random(height)\r\n-line(0,L2Yaltura,width,L2Yaltura);\r\n-    \r\n-  }\r\n \r\n-/// pra finalizar e criar a mira, precisamos colocar uma bolinha exatamente em cima\r\n-/// do encontro das duas linhas, como o circulo é composto de 3 valores, 2 x e y e 1 do diametro\r\n-/// colocaremos os valores de x e y das linhas, para que a bolinha acompanhe, ficando:\r\n+}\r\n+function setup(){\r\n+  createCanvas(500,500);\r\n+  tubarao = new bichu(0,0,100,tub_img);\r\n+}\r\n \r\n+function draw () {\r\n \r\n-function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n-    frameRate(2)\r\n-  }\r\n-  \r\n-function draw() {\r\n-    \r\n-background(0);\r\n-    \r\n-  \r\n-stroke(0,20,50,500);\r\n-strokeWeight(5);\r\n-let L1Xlargura = random(width);\r\n-line (L1Xlargura,0,L1Xlargura,height);\r\n-  \r\n-stroke(0,255,0,500);\r\n-strokeWeight(5);\r\n-let L2Yaltura = random(height)\r\n-line(0,L2Yaltura,width,L2Yaltura);\r\n-  \r\n-noStroke(); \r\n-circle(L1Xlargura,L2Yaltura,80);\r\n-    \r\n-  }\r\n-\r\n-  /// adicionei noStroke() para tirar o contorno\n+  tub_img.draw();\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1633963769127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,6 +51,6 @@\n }\r\n \r\n function draw () {\r\n \r\n-  tub_img.draw();\r\n+tub_img.draw();\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1633963775238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,6 +51,6 @@\n }\r\n \r\n function draw () {\r\n \r\n-tub_img.draw();\r\n+  tub_img.draw ();\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1633964379381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,6 +51,6 @@\n }\r\n \r\n function draw () {\r\n \r\n-  tub_img.draw ();\r\n+  tub_img.draw;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1633964386655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,56 +1,10 @@\n \r\n-/// continuando aqui essa versão já a apartir do processo de instaciamento da classe\r\n \r\n-class bichu {\r\n-  x: number;\r\n-  y: number;\r\n-  passo:number\r\n-  tub_img:p5.Image;\r\n-\r\n-  constructor(x:number, y:number, passo:number, tub:p5.Image){\r\n-    this.x = x;\r\n-    this.y = y;\r\n-    this.passo = passo;\r\n-    this.tub_img = tub_img; \r\n- \r\n-  } \r\n-\r\n-  draw(): void{\r\n-    image(tub_img, this.x * this.passo, this.y * this.passo, this.passo, this.passo);\r\n+function setup() {\r\n+    createCanvas(windowWidth,windowHeight);\r\n+    frameRate(10)\r\n   }\r\n-}\r\n-\r\n-\r\n-let tub_img:p5.Image\r\n-let tubarao:bichu;\r\n-\r\n-function preload(): void {\r\n-\r\n-  tub_img = loadImage(\r\n-    '../sketch/tub.gif',\r\n-    () => console.log(\"imagem carregada\"),\r\n-    () => console.log(\"imagem não carregada\")\r\n-  );\r\n-}\r\n-\r\n-function keyPressed(){\r\n-  if (keyCode === LEFT_ARROW){\r\n-    this.x--;\r\n-  } else if (keyCode === RIGHT_ARROW){\r\n-    this.x++;\r\n-  } else if (keyCode === UP_ARROW){\r\n-    this.y--;\r\n-  } else if( keyCode === DOWN_ARROW){\r\n-    this.y++;\r\n-  }\r\n-\r\n-}\r\n-function setup(){\r\n-  createCanvas(500,500);\r\n-  tubarao = new bichu(0,0,100,tub_img);\r\n-}\r\n-\r\n-function draw () {\r\n\\ No newline at end of file\n-\r\n-  tub_img.draw;\r\n-}\n+  \r\n+function draw() {\r\n+    \r\n+ \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1633964392528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,5 @@\n     frameRate(10)\r\n   }\r\n   \r\n function draw() {\r\n-    \r\n- \n\\ No newline at end of file\n+}\r\n"
+                },
+                {
+                    "date": 1633964427980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n \r\n \r\n+\r\n+\r\n function setup() {\r\n     createCanvas(windowWidth,windowHeight);\r\n     frameRate(10)\r\n   }\r\n   \r\n function draw() {\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1633964436538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n+let tub\r\n \r\n \r\n-\r\n function setup() {\r\n     createCanvas(windowWidth,windowHeight);\r\n     frameRate(10)\r\n   }\r\n"
+                },
+                {
+                    "date": 1633964443741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n \r\n-let tub\r\n+let tub_img:p5.Image;\r\n \r\n \r\n function setup() {\r\n     createCanvas(windowWidth,windowHeight);\r\n"
+                },
+                {
+                    "date": 1633964462491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,12 @@\n \r\n let tub_img:p5.Image;\r\n \r\n+function preload(){\r\n+  \r\n+}\r\n \r\n+\r\n function setup() {\r\n     createCanvas(windowWidth,windowHeight);\r\n     frameRate(10)\r\n   }\r\n"
+                },
+                {
+                    "date": 1633964472855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  \r\n+  tub_img = \r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964561073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = \r\n+  tub_img = loadimage\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964568430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadimage\r\n+  tub_img = loadImage\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964573847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadImage\r\n+  tub_img = loadImage()\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964581715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadImage()\r\n+  tub_img = loadImage('../')\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964590679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadImage('../')\r\n+  tub_img = loadImage('../sketch')\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964597362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadImage('../sketch')\r\n+  tub_img = loadImage('../sketch/tub.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964602867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n }\r\n \r\n \r\n function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n+    createCanvas(500,);\r\n     frameRate(10)\r\n   }\r\n   \r\n function draw() {\r\n"
+                },
+                {
+                    "date": 1633964608887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,9 @@\n }\r\n \r\n \r\n function setup() {\r\n-    createCanvas(500,);\r\n-    frameRate(10)\r\n+    createCanvas(500,500);\r\n   }\r\n   \r\n function draw() {\r\n \r\n"
+                },
+                {
+                    "date": 1633964619620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n+  image()\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1633964627255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image()\r\n+  image(tub_img,)\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633964634636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,)\r\n+  image(tub_img,0,0,400,400)\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633964687389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadImage('../sketch/tub.gif');\r\n+  tub_img = loadImage('../sketch/');\r\n }\r\n \r\n \r\n function setup() {\r\n@@ -11,7 +11,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,400,400)\r\n+  image(tub_img,0,0,400,400);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633964705948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = loadImage('../sketch/');\r\n+  tub_img = createIG('../sketch/tub.png');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964716996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = createIG('../sketch/tub.png');\r\n+  tub_img = createImg('../sketch/tub.png');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964737246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = createImg('../sketch/tub.png');\r\n+  tub_img = createImg('../sketch/');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964753342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function preload(){\r\n-  tub_img = createImg('../sketch/');\r\n+  tub_img = createImg('../sketch/tub.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n@@ -11,7 +11,5 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,400,400);\r\n-\r\n }\r\n"
+                },
+                {
+                    "date": 1633964802214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n+fuction\r\n+\r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1633964807426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-fuction\r\n+fuction image\r\n \r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n }\r\n"
+                },
+                {
+                    "date": 1633964812531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-fuction image\r\n+fuction imageMode(path:)\r\n \r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n }\r\n"
+                },
+                {
+                    "date": 1633964822218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-fuction imageMode(path:)\r\n+fuction imageMode(path:string):p5\r\n \r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n }\r\n"
+                },
+                {
+                    "date": 1633964827282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-fuction imageMode(path:string):p5\r\n+fuction imageMode(path:string):p5.image{\r\n+  return\r\n+}\r\n \r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n }\r\n"
+                },
+                {
+                    "date": 1633964833726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-fuction imageMode(path:string):p5.image{\r\n+function imageMode(path:string):p5.image{\r\n   return\r\n }\r\n \r\n function preload(){\r\n"
+                },
+                {
+                    "date": 1633964842608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-function imageMode(path:string):p5.image{\r\n+function imageMode(path:string):p5.Image{\r\n   return\r\n }\r\n \r\n function preload(){\r\n"
+                },
+                {
+                    "date": 1633964848750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function imageMode(path:string):p5.Image{\r\n-  return\r\n+  return load\r\n }\r\n \r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n"
+                },
+                {
+                    "date": 1633964856166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n let tub_img:p5.Image;\r\n \r\n function imageMode(path:string):p5.Image{\r\n-  return load\r\n+  return loadImage(path);\r\n }\r\n \r\n function preload(){\r\n   tub_img = createImg('../sketch/tub.gif');\r\n"
+                },
+                {
+                    "date": 1633964876786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-function imageMode(path:string):p5.Image{\r\n+function image(path:string):p5.Image{\r\n   return loadImage(path);\r\n }\r\n \r\n function preload(){\r\n"
+                },
+                {
+                    "date": 1633964885252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-function image(path:string):p5.Image{\r\n+function imagem(path:string):p5.Image{\r\n   return loadImage(path);\r\n }\r\n \r\n function preload(){\r\n-  tub_img = createImg('../sketch/tub.gif');\r\n+  tub_img = imagem('../sketch/tub.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633964900027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n+  image\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1633964905832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image\r\n+  image(tub_img)\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633964911752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img)\r\n+  image(tub_img,0,0,400,400)\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633964986329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   return loadImage(path);\r\n }\r\n \r\n function preload(){\r\n-  tub_img = imagem('../sketch/tub.gif');\r\n+  tub_img-imagem('../sketch/tub.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n@@ -15,7 +15,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,400,400)\r\n+  image(tub_img,0,0,400,400);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633964992202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   return loadImage(path);\r\n }\r\n \r\n function preload(){\r\n-  tub_img-imagem('../sketch/tub.gif');\r\n+  tub_img=>imagem('../sketch/tub.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965003749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   return loadImage(path);\r\n }\r\n \r\n function preload(){\r\n-  tub_img=>imagem('../sketch/tub.gif');\r\n+  tub_img= imagem('../sketch/');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965016434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,10 @@\n \r\n let tub_img:p5.Image;\r\n \r\n-function imagem(path:string):p5.Image{\r\n-  return loadImage(path);\r\n-}\r\n \r\n function preload(){\r\n-  tub_img= imagem('../sketch/');\r\n+  tub_img= imagem('../sketch/tub.png');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965023420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n let tub_img:p5.Image;\r\n \r\n \r\n function preload(){\r\n-  tub_img= imagem('../sketch/tub.png');\r\n+  tub_img= image('../sketch/tub.png');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965030762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n let tub_img:p5.Image;\r\n \r\n \r\n function preload(){\r\n-  tub_img= image('../sketch/tub.png');\r\n+  tub_img= loadImage('../sketch/tub.png');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965062338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n let tub_img:p5.Image;\r\n \r\n \r\n function preload(){\r\n-  tub_img= loadImage('../sketch/tub.png');\r\n+  tub_img= loadImage('../sketch/');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965067746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n let tub_img:p5.Image;\r\n \r\n \r\n function preload(){\r\n-  tub_img= loadImage('../sketch/');\r\n+  tub_img= loadImage('../sketch/p5-persona.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965228533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n let tub_img:p5.Image;\r\n \r\n \r\n function preload(){\r\n-  tub_img= loadImage('../sketch/p5-persona.gif');\r\n+  tub_img= loadImage('../sketch/');\r\n }\r\n \r\n \r\n function setup() {\r\n"
+                },
+                {
+                    "date": 1633965292395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n let tub_img:p5.Image;\r\n \r\n \r\n function preload(){\r\n-  tub_img= loadImage('../sketch/');\r\n+  tub_img= loadImage('../sketch/tubok.gif');\r\n }\r\n \r\n \r\n function setup() {\r\n@@ -12,7 +12,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,400,400);\r\n+  image(tub_img,0,0,,400);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633965299575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,7 +12,7 @@\n   }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,,400);\r\n+  image(tub_img,0,0,100,100);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633965313580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n \r\n \r\n function setup() {\r\n     createCanvas(500,500);\r\n+    background(0)\r\n   }\r\n   \r\n function draw() {\r\n \r\n"
+                },
+                {
+                    "date": 1633965323788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n \r\n function setup() {\r\n     createCanvas(500,500);\r\n-    background(0)\r\n+    \r\n   }\r\n   \r\n function draw() {\r\n \r\n"
+                },
+                {
+                    "date": 1633965330408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n \r\n function setup() {\r\n     createCanvas(500,500);\r\n-    \r\n+  background(0);\r\n   }\r\n   \r\n function draw() {\r\n \r\n"
+                },
+                {
+                    "date": 1633965336833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,10 @@\n }\r\n \r\n \r\n function setup() {\r\n-    createCanvas(500,500);\r\n-  background(0);\r\n+  createCanvas(500,500);\r\n+    background(0);\r\n   }\r\n   \r\n function draw() {\r\n \r\n"
+                },
+                {
+                    "date": 1633965344521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n \r\n \r\n function setup() {\r\n   createCanvas(500,500);\r\n-    background(0);\r\n-  }\r\n+  background(0);\r\n+}\r\n   \r\n function draw() {\r\n \r\n   image(tub_img,0,0,100,100);\r\n"
+                },
+                {
+                    "date": 1633965361334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,7 @@\n }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,100,100);\r\n+  image(tub_img,0,0,300,100);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633965368995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,7 @@\n }\r\n   \r\n function draw() {\r\n \r\n-  image(tub_img,0,0,300,100);\r\n+  image(tub_img,0,0,030,100);\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1633965381928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n }\r\n \r\n \r\n function setup() {\r\n+  \r\n   createCanvas(500,500);\r\n   \r\n }\r\n   \r\n"
+                },
+                {
+                    "date": 1633965609852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+\r\n+let tub_img:p5.Image;\r\n+\r\n+function preload(){\r\n+  tub_img= loadImage('../sketch/tubok.gif',\r\n+  ()=> console.log (\"imagem falhou\");\r\n+  ()=> console.log (\"imagem carregou\");\r\n+}\r\n+function setup() {\r\n+  createCanvas(500,500);\r\n+  background(0);\r\n+}\r\n+  \r\n+function draw() {\r\n+\r\n+  image(tub_img,0,0,200,100);\r\n+\r\n+}\r\n+\r\n"
+                }
+            ],
+            "date": 1633886718028,
+            "name": "Commit-0",
+            "content": "/// aqui a intenção é criar uma linha horizontal e vertical perfeitamente direcionadas e retas\r\n//// repetindo a outra linha numa ordem inversa chegamos eim: \r\n\r\n/// line(0,random(height),width,random(height)); /// aqui random(height) se repete\r\n\r\n/// line(random(width),0,random(width),height); /// aqui random(width) se repete \r\n\r\n/// nesse caso tanto o y2 random(height), quanto o x2 random(width) que se repetem, parece só uma repetição,\r\n/// pra cumprir os 4 valores orbrigatórios em x1,y1 x2,y2. Porque só de definir um valor de x1 = 0 e o valor de x2 width\r\n/// o valor de y1 random(height) a linha já iria assumir alturas variadas, não parecendo tão necessário o  y2, tanto que se repete.\r\n\r\nfunction setup() {\r\n    createCanvas(windowWidth,windowHeight);\r\n    frameRate(10)\r\n  }\r\n  \r\nfunction draw() {\r\n    \r\n  ///  background(0);\r\n    \r\nstroke(0,255,0,500);\r\nstrokeWeight(5);\r\nline(0,random(height),width,random(height));\r\n  \r\nstroke(0,0,0,500);\r\nstrokeWeight(5);\r\nline(random(width),0,random(width),height)\r\n    \r\n  }\r\n\r\n/// segundo a aula, substituiremos o valor repetido na linha 1 e na linha 2 por \r\n/// uma variável, eu só não entendo como isso de forma mágica faz a linha ficar exatamente\r\n/// reta, já que é o mesmo valor, mas apenas transformada em uma variável, ficando assim :\r\n\r\n\r\nfunction setup() {\r\n    createCanvas(windowWidth,windowHeight);\r\n    frameRate(2)\r\n  }\r\n  \r\nfunction draw() {\r\n    background(0);\r\n    \r\n  \r\nstroke(0,20,50,500);\r\nstrokeWeight(5);\r\nlet L1Xlargura = random(width);\r\nline (L1Xlargura,0,L1Xlargura,height);\r\n  \r\nstroke(0,255,0,500);\r\nstrokeWeight(5);\r\nlet L2Yaltura = random(height)\r\nline(0,L2Yaltura,width,L2Yaltura);\r\n    \r\n  }\r\n\r\n/// pra finalizar e criar a mira, precisamos colocar uma bolinha exatamente em cima\r\n/// do encontro das duas linhas, como o circulo é composto de 3 valores, 2 x e y e 1 do diametro\r\n/// colocaremos os valores de x e y das linhas, para que a bolinha acompanhe, ficando:\r\n\r\n\r\nfunction setup() {\r\n    createCanvas(windowWidth,windowHeight);\r\n    frameRate(2)\r\n  }\r\n  \r\nfunction draw() {\r\n    \r\nbackground(0);\r\n    \r\n  \r\nstroke(0,20,50,500);\r\nstrokeWeight(5);\r\nlet L1Xlargura = random(width);\r\nline (L1Xlargura,0,L1Xlargura,height);\r\n  \r\nstroke(0,255,0,500);\r\nstrokeWeight(5);\r\nlet L2Yaltura = random(height)\r\nline(0,L2Yaltura,width,L2Yaltura);\r\n  \r\nnoStroke(); \r\ncircle(L1Xlargura,L2Yaltura,80);\r\n    \r\n  }\r\n\r\n  /// adicionei noStroke() para tirar o contorno"
+        }
+    ]
+}
