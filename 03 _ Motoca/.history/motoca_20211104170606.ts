@@ -37,7 +37,7 @@ class Motinha {
     }
     
 
-// aqui o professor colocou a condicao da idade, mas achei que fazia mais sentindo colocar ela no subir
+    // aqui o professor colocou a condicao da idade, mas achei que fazia mais sentindo colocar ela no subir
 
     dirigir(tempo: number): boolean {
         if (this.pessoa == null) {
@@ -60,7 +60,7 @@ class Motinha {
     }
 
 /// aqui cria na classe o subir, que  é do tipo boolean, onde se pessoa está vazio então pode receber uma pessoa 
-// e caso contrário diz que a moto esta ocupada, se a pessoa tiver mais de 10 anos a pessoa nao pode andar. 
+    // e caso contrário diz que a moto esta ocupada, se a pessoa tiver mais de 10 anos a pessoa nao pode andar. 
 
     subir( pessoa: Pessoa): boolean {
         if( this.pessoa === null){

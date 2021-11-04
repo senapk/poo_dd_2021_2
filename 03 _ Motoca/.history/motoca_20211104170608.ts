@@ -37,7 +37,7 @@ class Motinha {
     }
     
 
-// aqui o professor colocou a condicao da idade, mas achei que fazia mais sentindo colocar ela no subir
+    // aqui o professor colocou a condicao da idade, mas achei que fazia mais sentindo colocar ela no subir
 
     dirigir(tempo: number): boolean {
         if (this.pessoa == null) {
