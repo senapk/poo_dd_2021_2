@@ -51,7 +51,7 @@ class Motinha {
         this.tempo -= tempo;
         return true;
     }
-/// criando o metodo buzinar onde os a quantidade de "e" em pem é definida a partir da potencia da moto 
+ /// criando o metodo buzinar onde os a quantidade de "e" em pem é definida a partir da potencia da moto 
 // entao buzinada começa recebendo p+( "e" definido apartir da potencia e pelo for ) e termina recebendo "m"
 
     buzinar(): string {

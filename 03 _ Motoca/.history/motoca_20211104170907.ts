@@ -51,8 +51,6 @@ class Motinha {
         this.tempo -= tempo;
         return true;
     }
-/// criando o metodo buzinar onde os a quantidade de "e" em pem é definida a partir da potencia da moto 
-// entao buzinada começa recebendo p+( "e" definido apartir da potencia e pelo for ) e termina recebendo "m"
 
     buzinar(): string {
         let buzinada = "p";
@@ -93,7 +91,8 @@ class Motinha {
         return pessoa
     }
 
-   
+    /// criando o metodo buzinar onde os a quantidade de "e" em pem é definida a partir da potencia da moto 
+    // entao buzinada começa recebendo p+( "e" definido apartir da potencia e pelo for ) e termina recebendo "m"
 
    
    /// como no constructor inicializamos pessoa como null, ao retornar no tostring (pessoa.nome) o terminal aponta um
