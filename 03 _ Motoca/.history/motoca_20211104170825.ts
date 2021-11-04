@@ -95,9 +95,9 @@ class Motinha {
 // entao buzinada começa recebendo p+( "e" definido apartir da potencia e pelo for ) e termina recebendo "m"
 
    
-/// como no constructor inicializamos pessoa como null, ao retornar no tostring (pessoa.nome) o terminal aponta um
-/// possivel erro de acessar o nome de uma pesssoa que pode ser que estaja vazio, então colocamos uma condição que
-// se pessoa não for nulo, retornará nome em pessoa e caso contrário retornará " motinha vazia "
+   /// como no constructor inicializamos pessoa como null, ao retornar no tostring (pessoa.nome) o terminal aponta um
+    /// possivel erro de acessar o nome de uma pesssoa que pode ser que estaja vazio, então colocamos uma condição que
+    // se pessoa não for nulo, retornará nome em pessoa e caso contrário retornará " motinha vazia "
 
     toString(): string {
         let nome = "vazio"
