@@ -1,0 +1,90 @@
+{
+    "sourceFile": "motoca.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1636055487980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1636055502592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n \r\n     /// aqui cria na classe o subir, que  é do tipo boolean, onde se pessoa está vazio então pode receber uma pessoa \r\n     // e caso contrário diz que a moto esta ocupada. \r\n \r\n-    subir( pessoa: Pessoa): boolean {\r\n+    subir( pessoa: Pessoa): bool {\r\n         if( this.pessoa === null){\r\n             this.pessoa = pessoa;\r\n             return true;\r\n         }\r\n"
+                },
+                {
+                    "date": 1636055508692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n \r\n     /// aqui cria na classe o subir, que  é do tipo boolean, onde se pessoa está vazio então pode receber uma pessoa \r\n     // e caso contrário diz que a moto esta ocupada. \r\n \r\n-    subir( pessoa: Pessoa): bool {\r\n+    subir( pessoa: Pessoa):  {\r\n         if( this.pessoa === null){\r\n             this.pessoa = pessoa;\r\n             return true;\r\n         }\r\n"
+                },
+                {
+                    "date": 1636055538271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     \r\n     dirigir(tempo: number): boolean {\r\n         if (this.pessoa == null) {\r\n             console.log(\"moto vazia\");\r\n-            return;\r\n+            return ;\r\n         }\r\n        if (this.pessoa.idade > 10){\r\n             console.log(\"pessoa adulta\");\r\n             return false;\r\n@@ -63,9 +63,9 @@\n \r\n     /// aqui cria na classe o subir, que  é do tipo boolean, onde se pessoa está vazio então pode receber uma pessoa \r\n     // e caso contrário diz que a moto esta ocupada. \r\n \r\n-    subir( pessoa: Pessoa):  {\r\n+    subir( pessoa: Pessoa): boolean {\r\n         if( this.pessoa === null){\r\n             this.pessoa = pessoa;\r\n             return true;\r\n         }\r\n"
+                },
+                {
+                    "date": 1636055550249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     \r\n     dirigir(tempo: number): boolean {\r\n         if (this.pessoa == null) {\r\n             console.log(\"moto vazia\");\r\n-            return ;\r\n+            return false;\r\n         }\r\n        if (this.pessoa.idade > 10){\r\n             console.log(\"pessoa adulta\");\r\n             return false;\r\n"
+                },
+                {
+                    "date": 1636055562603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,4 +113,5 @@\n \r\n let motoca = new Motinha(5);\r\n console.log(motoca.buzinar());\r\n \r\n+let motoca \r\n"
+                },
+                {
+                    "date": 1636055572969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,5 +113,5 @@\n \r\n let motoca = new Motinha(5);\r\n console.log(motoca.buzinar());\r\n \r\n-let motoca \r\n+let motinhavermelha = new Motinha ()\r\n"
+                },
+                {
+                    "date": 1636055581610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,5 +113,6 @@\n \r\n let motoca = new Motinha(5);\r\n console.log(motoca.buzinar());\r\n \r\n-let motinhavermelha = new Motinha ()\r\n+let motinhavermelha = new Motinha (8);\r\n+\r\n"
+                },
+                {
+                    "date": 1636055597487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -114,5 +114,6 @@\n let motoca = new Motinha(5);\r\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n+console.log(mo)\r\n \r\n"
+                },
+                {
+                    "date": 1636055615427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -114,6 +114,7 @@\n let motoca = new Motinha(5);\r\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n-console.log(mo)\r\n+console.log(motinhavermelha);\r\n \r\n+\r\n"
+                },
+                {
+                    "date": 1636055632216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,6 +115,6 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n+motinhaverm\r\n \r\n-\r\n"
+                },
+                {
+                    "date": 1636055644945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,6 +115,6 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-motinhaverm\r\n+motinhavermelha.subir(new Pessoa())\r\n \r\n"
+                },
+                {
+                    "date": 1636055650225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,6 +115,6 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-motinhavermelha.subir(new Pessoa())\r\n+motinhavermelha.subir(new Pessoa(\"fernanda\"))\r\n \r\n"
+                },
+                {
+                    "date": 1636055655448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,6 +115,6 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-motinhavermelha.subir(new Pessoa(\"fernanda\"))\r\n+motinhavermelha.subir(new Pessoa(\"fernanda\",15))\r\n \r\n"
+                },
+                {
+                    "date": 1636055662704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,6 +115,7 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-motinhavermelha.subir(new Pessoa(\"fernanda\",15))\r\n+motinhavermelha.subir(new Pessoa(\"fernanda\",15));\r\n+console.log(mot)\r\n \r\n"
+                },
+                {
+                    "date": 1636055691506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,7 +115,8 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n+\r\n motinhavermelha.subir(new Pessoa(\"fernanda\",15));\r\n-console.log(mot)\r\n+console.log(motinhavermelha);\r\n \r\n"
+                },
+                {
+                    "date": 1636055701233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,8 +115,8 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-\r\n+crianca2 = new Pessoa()\r\n motinhavermelha.subir(new Pessoa(\"fernanda\",15));\r\n console.log(motinhavermelha);\r\n \r\n"
+                },
+                {
+                    "date": 1636055708729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,8 +115,8 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-crianca2 = new Pessoa()\r\n+crianca2 = new Pessoa(\"fernanda\", 15)\r\n motinhavermelha.subir(new Pessoa(\"fernanda\",15));\r\n console.log(motinhavermelha);\r\n \r\n"
+                },
+                {
+                    "date": 1636055721919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,8 +115,8 @@\n console.log(motoca.buzinar());\r\n \r\n let motinhavermelha = new Motinha (8);\r\n console.log(motinhavermelha);\r\n-crianca2  = new Pessoa(\"fernanda\", 15);\r\n+crianca2 = new Pessoa(\"fernanda\", 15);\r\n motinhavermelha.subir(new Pessoa(\"fernanda\",15));\r\n console.log(motinhavermelha);\r\n \r\n"
+                }
+            ],
+            "date": 1636055487980,
+            "name": "Commit-0",
+            "content": "\r\n\r\n///  criando a classe pessoa que tem como atributos nome e idade\r\n\r\nclass Pessoa {\r\n    nome:string;\r\n    idade:number;\r\n\r\n    constructor (nome:string, idade:number) {\r\n        this.nome = nome\r\n        this.idade = idade\r\n    }\r\n    /// convertendo os atributos da classe para imprimir no console.log\r\n    toString(): string {\r\n        return this.nome + \"tem\" + this.idade + \"anos\";\r\n    }\r\n}\r\n\r\nclass Motinha {\r\n\r\n    /// 2 observações: a classe moto ela recebe pessoa, ou seja pessoa não ta sendo criada em moto, portanto não é necessário\r\n    /// adicionar também ao constructor, o objeto pessoa. A tipagem fica pessoa | null, porque tanto a moto pode ter uma pessoa\r\n    /// como a moto pode estar vazia, no constructor pessoa inicia como null, que é a motinha iniciando vazia. \r\n\r\n    potencia: number\r\n    pessoa: Pessoa | null;\r\n    tempo: number\r\n\r\n    constructor(potencia:number) {\r\n        this.pessoa = null;\r\n        this.potencia = potencia;\r\n        this.tempo = 0;\r\n    }\r\n    \r\n    tempodamoto(seg:number): void {\r\n        this.tempo += seg;\r\n    }\r\n    \r\n    dirigir(tempo: number): boolean {\r\n        if (this.pessoa == null) {\r\n            console.log(\"moto vazia\");\r\n            return;\r\n        }\r\n       if (this.pessoa.idade > 10){\r\n            console.log(\"pessoa adulta\");\r\n            return false;\r\n        }\r\n\r\n        if (this.tempo < tempo) {\r\n            console.log(\"tempo insuficiente\");\r\n            return false;\r\n        } \r\n        this.tempo -= tempo;\r\n        return true;\r\n    }\r\n\r\n    buzinar(): string {\r\n        let buzinada = \"p\";\r\n        for ( let i = 0; i < this.potencia; i++)\r\n            buzinada += \"e\";\r\n        return buzinada + \"m\"\r\n    }\r\n\r\n    /// aqui cria na classe o subir, que  é do tipo boolean, onde se pessoa está vazio então pode receber uma pessoa \r\n    // e caso contrário diz que a moto esta ocupada. \r\n\r\n    subir( pessoa: Pessoa): boolean {\r\n        if( this.pessoa === null){\r\n            this.pessoa = pessoa;\r\n            return true;\r\n        }\r\n        console.log(\"motinha ocupada\");\r\n        return false\r\n        \r\n    }\r\n\r\n    /// como em potencia, descer pode ser pessoa e null (vazio) \r\n    // \r\n    descer(): Pessoa |null{\r\n        if (this.pessoa == null){\r\n            console.log(\"moto vazia\")\r\n            return null;\r\n        }\r\n\r\n        const pessoa = this.pessoa;\r\n        this.pessoa = null;\r\n        return pessoa\r\n    }\r\n\r\n    /// criando o metodo buzinar onde os a quantidade de \"e\" em pem é definida a partir da potencia da moto \r\n    // entao buzinada começa recebendo p+( \"e\" definido apartir da potencia e pelo for ) e termina recebendo \"m\"\r\n\r\n   \r\n   /// como no constructor inicializamos pessoa como null, ao retornar no tostring (pessoa.nome) o terminal aponta um\r\n    /// possivel erro de acessar o nome de uma pesssoa que pode ser que estaja vazio, então colocamos uma condição que\r\n    // se pessoa não for nulo, retornará nome em pessoa e caso contrário retornará \" motinha vazia \"\r\n\r\n    toString(): string {\r\n        let nome = \"vazio\"\r\n        if (this.pessoa != null)\r\n            nome = this.pessoa.nome;\r\n        return `[${nome}]`;\r\n    }\r\n\r\n}\r\n\r\nlet motinha1 = new Motinha(8)\r\n\r\nmotinha1.subir(new Pessoa(\"maria lara\",10 ))\r\nconsole.log(motinha1);\r\nconsole.log(motinha1.buzinar());\r\nmotinha1.subir(new Pessoa(\"joao\",8));\r\n\r\nlet motoca = new Motinha(5);\r\nconsole.log(motoca.buzinar());\r\n\r\n"
+        }
+    ]
+}
