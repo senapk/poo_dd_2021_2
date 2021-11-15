@@ -60,7 +60,7 @@
  /// bolha1.update();
  // bolha1.draw();
   
-//}
+/////////////}sssssss
 
 
 
@@ -81,7 +81,7 @@ class Bolha {
       this.velocidade = velocidade
   }   
   
-  //// aqui update para o valor de y ser incrementado do valor de y + velocidade 
+  //// aqui update para o valor de y ser incrementado do valor de y + velocidade...
 
   update(): void {
     this.y = this.y + this.velocidade;
