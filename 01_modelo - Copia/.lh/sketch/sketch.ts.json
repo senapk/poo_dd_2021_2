@@ -1,0 +1,122 @@
+{
+    "sourceFile": "sketch/sketch.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 26,
+            "patches": [
+                {
+                    "date": 1633886718028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1636396396583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,87 +1,49 @@\n-/// aqui a intenção é criar uma linha horizontal e vertical perfeitamente direcionadas e retas\r\n-//// repetindo a outra linha numa ordem inversa chegamos eim: \r\n+//// começando criando a classe bolha, algumas observaçõe:\r\n+//// o raio vem com o static que definie o raio como um tamanho e propriedade da classe, ao qual todos os objetos vão ter. \r\n+/// todas as bolhas começam \"vivas\", ambas essas caracteristicas não são inicializadas no constructor então devem ao menos\r\n+// de partida ter um valor padrão. Não entendi pq vitalidade tb nao vem com o estatic, e se vitalidade não ta dentro\r\n+/// dessa possibilidade do static, pq não ta inicializada no constructor ? \r\n+// Tudo que é estatico pertence a classe. \r\n \r\n-/// line(0,random(height),width,random(height)); /// aqui random(height) se repete\r\n \r\n-/// line(random(width),0,random(width),height); /// aqui random(width) se repete \r\n+class Bolha {\r\n+  x:number\r\n+  y:number\r\n+  letra:string\r\n+  velocidade:number\r\n \r\n-/// nesse caso tanto o y2 random(height), quanto o x2 random(width) que se repetem, parece só uma repetição,\r\n-/// pra cumprir os 4 valores orbrigatórios em x1,y1 x2,y2. Porque só de definir um valor de x1 = 0 e o valor de x2 width\r\n-/// o valor de y1 random(height) a linha já iria assumir alturas variadas, não parecendo tão necessário o  y2, tanto que se repete.\r\n+  static raio: number = 30 \r\n+  vitalidade:boolean = true;\r\n \r\n-function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n-    frameRate(10)\r\n-  }\r\n-  \r\n-function draw() {\r\n-    \r\n-  ///  background(0);\r\n-    \r\n-stroke(0,255,0,500);\r\n-strokeWeight(5);\r\n-line(0,random(height),width,random(height));\r\n-  \r\n-stroke(0,0,0,500);\r\n-strokeWeight(5);\r\n-line(random(width),0,random(width),height)\r\n-    \r\n-  }\r\n+  constructor(x: number, y:number, letra:string, velocidade:number){\r\n+      this.x = x\r\n+      this.y = y\r\n+      this.letra = letra\r\n+      this.velocidade = velocidade\r\n+  }   \r\n \r\n-/// segundo a aula, substituiremos o valor repetido na linha 1 e na linha 2 por \r\n-/// uma variável, eu só não entendo como isso de forma mágica faz a linha ficar exatamente\r\n-/// reta, já que é o mesmo valor, mas apenas transformada em uma variável, ficando assim :\r\n+  draw():void {\r\n+      /// propriedade da bolha \r\n+      // o circulo é a posição de x e y e o diametro, que no caso ta sendo 2 x raio\r\n+      fill(225);\r\n+      stroke(225);\r\n+      circle(this.x,this.y, 2 * Bolha.raio);\r\n+      ///propriedades do texto dentro da bolha \r\n+      fill(0);\r\n+      stroke(0);\r\n+      textSize(15);\r\n+      text(this.letra,this.x - 5, this.y + 5 );\r\n \r\n+  }\r\n+}\r\n \r\n function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n-    frameRate(2)\r\n-  }\r\n-  \r\n-function draw() {\r\n-    background(0);\r\n-    \r\n-  \r\n-stroke(0,20,50,500);\r\n-strokeWeight(5);\r\n-let L1Xlargura = random(width);\r\n-line (L1Xlargura,0,L1Xlargura,height);\r\n-  \r\n-stroke(0,255,0,500);\r\n-strokeWeight(5);\r\n-let L2Yaltura = random(height)\r\n-line(0,L2Yaltura,width,L2Yaltura);\r\n-    \r\n-  }\r\n\\ No newline at end of file\n+  createCanvas(800,600); /// ajustar um tamanho melhor pra tela ou isso vai influenciar em algo do posicionamento e etc?\r\n \r\n-/// pra finalizar e criar a mira, precisamos colocar uma bolinha exatamente em cima\r\n-/// do encontro das duas linhas, como o circulo é composto de 3 valores, 2 x e y e 1 do diametro\r\n-/// colocaremos os valores de x e y das linhas, para que a bolinha acompanhe, ficando:\r\n+}\r\n \r\n-\r\n-function setup() {\r\n-    createCanvas(windowWidth,windowHeight);\r\n-    frameRate(2)\r\n-  }\r\n+function draw(){\r\n+  let bolha1 = new Bolha (100,100,\"A\", 1);\r\n+  bolha1.draw();\r\n   \r\n-function draw() {\r\n-    \r\n-background(0);\r\n-    \r\n-  \r\n-stroke(0,20,50,500);\r\n-strokeWeight(5);\r\n-let L1Xlargura = random(width);\r\n-line (L1Xlargura,0,L1Xlargura,height);\r\n-  \r\n-stroke(0,255,0,500);\r\n-strokeWeight(5);\r\n-let L2Yaltura = random(height)\r\n-line(0,L2Yaltura,width,L2Yaltura);\r\n-  \r\n-noStroke(); \r\n-circle(L1Xlargura,L2Yaltura,80);\r\n-    \r\n-  }\r\n-\r\n-  /// adicionei noStroke() para tirar o contorno\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396475880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n \r\n }\r\n \r\n function draw(){\r\n+  background\r\n   let bolha1 = new Bolha (100,100,\"A\", 1);\r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396486267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n \r\n }\r\n \r\n function draw(){\r\n-  background\r\n+  background(250)\r\n   let bolha1 = new Bolha (100,100,\"A\", 1);\r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396496757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n \r\n }\r\n \r\n function draw(){\r\n-  background(250)\r\n+  background(100)\r\n   let bolha1 = new Bolha (100,100,\"A\", 1);\r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396569072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,11 @@\n \r\n   }\r\n }\r\n \r\n+\r\n+\r\n+\r\n function setup() {\r\n   createCanvas(800,600); /// ajustar um tamanho melhor pra tela ou isso vai influenciar em algo do posicionamento e etc?\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1636396579593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,11 @@\n \r\n   }\r\n }\r\n \r\n+let bolha1:Bolha \r\n \r\n \r\n-\r\n function setup() {\r\n   createCanvas(800,600); /// ajustar um tamanho melhor pra tela ou isso vai influenciar em algo do posicionamento e etc?\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1636396584952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,8 @@\n }\r\n \r\n function draw(){\r\n   background(100)\r\n-  let bolha1 = new Bolha (100,100,\"A\", 1);\r\n+  let \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396591642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,13 +41,13 @@\n \r\n \r\n function setup() {\r\n   createCanvas(800,600); /// ajustar um tamanho melhor pra tela ou isso vai influenciar em algo do posicionamento e etc?\r\n+  bolha1 = new Bolha (100,100,\"A\", 1);\r\n \r\n }\r\n \r\n function draw(){\r\n   background(100)\r\n-  let \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396601232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,7 +47,8 @@\n }\r\n \r\n function draw(){\r\n   background(100)\r\n+  bolha1.update\r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396607438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,8 @@\n }\r\n \r\n function draw(){\r\n   background(100)\r\n-  bolha1.update\r\n+  bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396614022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,8 @@\n }\r\n \r\n function draw(){\r\n   background(100)\r\n-  bolha1.update(); \r\n+  bolha.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396643820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,10 @@\n \r\n }\r\n \r\n function draw(){\r\n+  \r\n   background(100)\r\n-  bolha.update(); \r\n+  bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396706731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n \r\n }\r\n \r\n function draw(){\r\n-  \r\n-  background(100)\r\n+\r\n+  background(100);\r\n   bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396775502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-  bolha1.update(); \r\n+  bolha.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396783173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-  bolha.update(); \r\n-  bolha1.draw();\r\n+  Bolha.update(); \r\n+  Bolha.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396789785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-  Bolha.update(); \r\n-  Bolha.draw();\r\n+  bolha1.update(); \r\n+  bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396799421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n+  \r\n   bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396805862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,8 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-  \r\n-  bolha1.update(); \r\n+    bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396815869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-    bolha1.update(); \r\n+  bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396857635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n \r\n }\r\n \r\n function draw(){\r\n-\r\n-  background(100);\r\n   bolha1.update(); \r\n   bolha1.draw();\r\n+  background(100);\r\n+ \r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396870279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n \r\n }\r\n \r\n function draw(){\r\n+\r\n+  background(100);\r\n   bolha1.update(); \r\n   bolha1.draw();\r\n-  background(100);\r\n- \r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396891794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \r\n   }\r\n }\r\n \r\n-let bolha1:Bolha \r\n+let bolha1:Bolha;\r\n \r\n \r\n function setup() {\r\n   createCanvas(800,600); /// ajustar um tamanho melhor pra tela ou isso vai influenciar em algo do posicionamento e etc?\r\n"
+                },
+                {
+                    "date": 1636396944710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,7 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-  bolha1.update(); \r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396965754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,7 +48,9 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n+   \r\n+\r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636396971338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n \r\n function draw(){\r\n \r\n   background(100);\r\n-  bolha1.U\r\n+  bolha1.\r\n   bolha1.draw();\r\n   \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1636410777323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n       this.velocidade = velocidade\r\n   }   \r\n   \r\n   udpate (): void {\r\n-    this.y =+ thy\r\n+    this.y =+ th\r\n   }\r\n \r\n   draw():void {\r\n       /// propriedade da bolha \r\n"
+                }
+            ],
+            "date": 1633886718028,
+            "name": "Commit-0",
+            "content": "/// aqui a intenção é criar uma linha horizontal e vertical perfeitamente direcionadas e retas\r\n//// repetindo a outra linha numa ordem inversa chegamos eim: \r\n\r\n/// line(0,random(height),width,random(height)); /// aqui random(height) se repete\r\n\r\n/// line(random(width),0,random(width),height); /// aqui random(width) se repete \r\n\r\n/// nesse caso tanto o y2 random(height), quanto o x2 random(width) que se repetem, parece só uma repetição,\r\n/// pra cumprir os 4 valores orbrigatórios em x1,y1 x2,y2. Porque só de definir um valor de x1 = 0 e o valor de x2 width\r\n/// o valor de y1 random(height) a linha já iria assumir alturas variadas, não parecendo tão necessário o  y2, tanto que se repete.\r\n\r\nfunction setup() {\r\n    createCanvas(windowWidth,windowHeight);\r\n    frameRate(10)\r\n  }\r\n  \r\nfunction draw() {\r\n    \r\n  ///  background(0);\r\n    \r\nstroke(0,255,0,500);\r\nstrokeWeight(5);\r\nline(0,random(height),width,random(height));\r\n  \r\nstroke(0,0,0,500);\r\nstrokeWeight(5);\r\nline(random(width),0,random(width),height)\r\n    \r\n  }\r\n\r\n/// segundo a aula, substituiremos o valor repetido na linha 1 e na linha 2 por \r\n/// uma variável, eu só não entendo como isso de forma mágica faz a linha ficar exatamente\r\n/// reta, já que é o mesmo valor, mas apenas transformada em uma variável, ficando assim :\r\n\r\n\r\nfunction setup() {\r\n    createCanvas(windowWidth,windowHeight);\r\n    frameRate(2)\r\n  }\r\n  \r\nfunction draw() {\r\n    background(0);\r\n    \r\n  \r\nstroke(0,20,50,500);\r\nstrokeWeight(5);\r\nlet L1Xlargura = random(width);\r\nline (L1Xlargura,0,L1Xlargura,height);\r\n  \r\nstroke(0,255,0,500);\r\nstrokeWeight(5);\r\nlet L2Yaltura = random(height)\r\nline(0,L2Yaltura,width,L2Yaltura);\r\n    \r\n  }\r\n\r\n/// pra finalizar e criar a mira, precisamos colocar uma bolinha exatamente em cima\r\n/// do encontro das duas linhas, como o circulo é composto de 3 valores, 2 x e y e 1 do diametro\r\n/// colocaremos os valores de x e y das linhas, para que a bolinha acompanhe, ficando:\r\n\r\n\r\nfunction setup() {\r\n    createCanvas(windowWidth,windowHeight);\r\n    frameRate(2)\r\n  }\r\n  \r\nfunction draw() {\r\n    \r\nbackground(0);\r\n    \r\n  \r\nstroke(0,20,50,500);\r\nstrokeWeight(5);\r\nlet L1Xlargura = random(width);\r\nline (L1Xlargura,0,L1Xlargura,height);\r\n  \r\nstroke(0,255,0,500);\r\nstrokeWeight(5);\r\nlet L2Yaltura = random(height)\r\nline(0,L2Yaltura,width,L2Yaltura);\r\n  \r\nnoStroke(); \r\ncircle(L1Xlargura,L2Yaltura,80);\r\n    \r\n  }\r\n\r\n  /// adicionei noStroke() para tirar o contorno"
+        }
+    ]
+}
