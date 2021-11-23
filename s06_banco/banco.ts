@@ -22,19 +22,59 @@ class Banco {
 
     //coloca a pessoa na fila de espera
     chegarPessoa(pessoa: Pessoa): void {
-
+        this.espera.push(pessoa);
     }
-
-    //se o caixa estiver vazio, pega a primeira pessoa da fila de espera
-    chamarNoCaixa(caixa: number): boolean {
-        return false;
+    //se esse indice existe
+    //se o caixa estiver vazio e tiver alguem na fila de espera
+    //move a pessoa da fila para o caixa e retorna true
+    chamarNoCaixa(indice: number): boolean {
+        if (indice < 0 || indice >= this.caixas.length) {
+            console.log("indice invalido");
+            return false;
+        }
+        if (this.caixas[indice] != null) {
+            console.log("caixa ocupado");
+            return false;
+        }
+        if (this.espera.length == 0) {
+            console.log("fila vazia");
+            return false;
+        }
+        this.caixas[indice] = this.espera.shift();;
+        return true;
     }
-
     //se o caixa estiver ocupado, retira a pessoa do caixa
-    finalizarAtendimento(caixa: number): boolean {
-        return false;
+    finalizarAtendimento(indice: number): Pessoa | null {
+        if (indice < 0 || indice >= this.caixas.length) {
+            console.log("indice invalido");
+            return null;
+        }
+        if (this.caixas[indice] == null) {
+            console.log("caixa vazio");
+            return null;
+        }
+        let vaiSair = this.caixas[indice];
+        this.caixas[indice] = null;
+        return vaiSair;
     }
-
+    //procura nos caixas e na espera e se achar, retira e retorna a pessoa
+    removerPorNome(nome: string): Pessoa | null {
+        for (let i = 0; i < this.caixas.length; i++) {
+            let pessoa = this.caixas[i];
+            if (pessoa != null && pessoa.nome == nome) {
+                this.caixas[i] = null;
+                return pessoa;
+            }
+        }
+        for (let i = 0; i < this.espera.length; i++) {
+            let pessoa = this.espera[i];
+            if (pessoa.nome == nome) {
+                this.espera.splice(i, 1);
+                return pessoa;
+            }
+        }
+        return null;
+    }
     public toString() {
         let str = "caixas: | ";
         for (let i = 0; i < this.caixas.length; i++) {
