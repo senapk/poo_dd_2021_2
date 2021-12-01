@@ -8,9 +8,16 @@ cadeiras.has(1); //sim
 
 //1. Iterate over map keys
 
+
 for (let key of cadeiras.keys()) {
     console.log(key);
 }
+
+function compare_to_int(a: number, b: number) {
+    return a - b;
+}
+
+let keys = [...cadeiras.keys()].sort(compare_to_int);   fdsdfhgsxgfjdfkyhlkgfjhvlkbjlhkjg~p vb,nmv.,nm;vnvmbn.;b.,hhhhhhjjkjjjjjklçççççççççççççç~                                                                                                      
 
 for (let key of cadeiras.keys()) {
     console.log(key);                   
