@@ -1,41 +1,56 @@
-let cadeiras = new Map<number, string>();
- 
-cadeiras.set(3, "fco");
-cadeiras.set(5, "ana");
-cadeiras.set(1, "fabio");
+/*
+pro vscode não reclamar que ele não sabe o que é um map
+npm install @types/node
+*/
 
-cadeiras.has(1); //sim
+let alunos = new Map<number, string>(); //ES¨6 
+alunos.set(3456, "fco");
+alunos.set(5132, "ana");
+alunos.set(1194, "fabio");
+alunos.set(1194, "andre");
 
-//1. Iterate over map keys
+alunos.has(1678); //nao
+alunos.has(5132); //true
 
+console.log(alunos.size); //3
 
-for (let key of cadeiras.keys()) {
-    console.log(key);
+let valor = 5132;
+if (alunos.has(valor)) {
+    console.log(alunos.get(valor));
+} else {
+    console.log("nao existe");
 }
 
-function compare_to_int(a: number, b: number) {
-    return a - b;
-}
+alunos.delete(5132);
+console.log(alunos.size); //2
 
-let keys = [...cadeiras.keys()].sort(compare_to_int);   fdsdfhgsxgfjdfkyhlkgfjhvlkbjlhkjg~p vb,nmv.,nm;vnvmbn.;b.,hhhhhhjjkjjjjjklçççççççççççççç~                                                                                                      
 
-for (let key of cadeiras.keys()) {
-    console.log(key);                   
-}
 
-//2. Iterate over map values
-for (let value of cadeiras.values()) {
-    console.log(value);                 //37 35 40
-}
+// //1. Iterate over map keys
+// for (let key of alunos.keys()) {
+//     console.log(key);//3456, 5132, 1194
+// }
 
-//3. Iterate over map entries
-for (let entry of cadeiras.entries()) {
-    console.log(entry[0], entry[1]);    //"Lokesh" 37 "Raj" 35 "John" 40
-}
+// let keys = [...alunos.keys()].sort( (a,b) => a - b);
 
-//4. Using object destructuring
-for (let [key, value] of cadeiras) {
-    console.log(key, value);            //"Lokesh" 37 "Raj" 35 "John" 40
-}
+// for (let key of alunos.keys()) {
+//     console.log(key);
+// }
 
-console.log("ola pessoal");
+// //2. Iterate over map values
+// for (let value of alunos.values()) {
+//     console.log(value); //fco, ana, fabio
+// }
+
+// //3. Iterate over map entries
+// for (let entry of alunos.entries()) {
+//     console.log(entry[0], entry[1]);    //"Lokesh" 37 "Raj" 35 "John" 40
+// }
+
+// //4. Using object destructuring
+// for (let [key, value] of alunos) {
+//     console.log(key, value);            //"Lokesh" 37 "Raj" 35 "John" 40
+// }
+
+// console.log("ola pessoal");
+
