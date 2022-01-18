@@ -1,5 +1,4 @@
 /*
-
 pra rodar
 npm -g install typescript ts-node
 
