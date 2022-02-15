@@ -1,0 +1,18 @@
+{
+    "sourceFile": "build.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1636396371741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1636396371741,
+            "name": "Commit-0",
+            "content": "//// começando criando a classe bolha, algumas observaçõe:\r\n//// o raio vem com o static que definie o raio como um tamanho e propriedade da classe, ao qual todos os objetos vão ter. \r\n/// todas as bolhas começam \"vivas\", ambas essas caracteristicas não são inicializadas no constructor então devem ao menos\r\n// de partida ter um valor padrão. Não entendi pq vitalidade tb nao vem com o estatic, e se vitalidade não ta dentro\r\n/// dessa possibilidade do static, pq não ta inicializada no constructor ? \r\n// Tudo que é estatico pertence a classe. \r\n\r\n\r\nclass Bolha {\r\n    x:number\r\n    y:number\r\n    letra:string\r\n    velocidade:number\r\n\r\n    static raio: number = 30 \r\n    vitalidade:boolean = true;\r\n\r\n    constructor(x: number, y:number, letra:string, velocidade:number){\r\n        this.x = x\r\n        this.y = y\r\n        this.letra = letra\r\n        this.velocidade = velocidade\r\n    }   \r\n\r\n    draw():void {\r\n        /// propriedade da bolha \r\n        // o circulo é a posição de x e y e o diametro, que no caso ta sendo 2 x raio\r\n        fill(225);\r\n        stroke(225);\r\n        circle(this.x,this.y, 2 * Bolha.raio);\r\n        ///propriedades do texto dentro da bolha \r\n        fill(0);\r\n        stroke(0);\r\n        textSize(15);\r\n        text(this.letra,this.x - 5, this.y + 5 );\r\n\r\n    }\r\n}\r\n\r\nfunction setup() {\r\n    createCanvas(800,600); /// ajustar um tamanho melhor pra tela ou isso vai influenciar em algo do posicionamento e etc?\r\n\r\n}\r\n\r\nfunction draw(){\r\n    let bolha1 = new Bolha (100,100,\"A\", 1);\r\n    bolha1.draw();\r\n    \r\n}"
+        }
+    ]
+}
