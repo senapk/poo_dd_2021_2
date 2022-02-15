@@ -1,0 +1,106 @@
+{
+    "sourceFile": "pulapula.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1644354257836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644354268417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         this.iniciarListas();\r\n     }\r\n \r\n     sairDoPulaPula(nome: string) {\r\n-        if (this.criancasNoPulaPula.length <= 0) \r\n+        if (this.criancasNoPulaPula.length <= 0) // testa se existe crianças no pula pula\r\n             return;\r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n"
+                },
+                {
+                    "date": 1644354292227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n         this.iniciarListas();\r\n     }\r\n \r\n     sairDoPulaPula(nome: string) {\r\n-        if (this.criancasNoPulaPula.length <= 0) // testa se existe crianças no pula pula\r\n+        if (this.criancasNoPulaPula.length <= 0){\r\n+            \r\n+        } // testa se existe crianças no pula pula\r\n             return;\r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n"
+                },
+                {
+                    "date": 1644354297503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n         this.iniciarListas();\r\n     }\r\n \r\n     sairDoPulaPula(nome: string) {\r\n-        if (this.criancasNoPulaPula.length <= 0){\r\n-            \r\n-        } // testa se existe crianças no pula pula\r\n+        if (this.criancasNoPulaPula.length <= 0){ // testa se existe crianças no pula pula\r\n+\r\n+        } \r\n             return;\r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n"
+                },
+                {
+                    "date": 1644354307822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n     }\r\n \r\n     sairDoPulaPula(nome: string) {\r\n         if (this.criancasNoPulaPula.length <= 0){ // testa se existe crianças no pula pula\r\n-\r\n+            console.log()\r\n+            return;\r\n         } \r\n-            return;\r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n         this.criancasNoPulaPula.pop();\r\n"
+                },
+                {
+                    "date": 1644354322361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     }\r\n \r\n     sairDoPulaPula(nome: string) {\r\n         if (this.criancasNoPulaPula.length <= 0){ // testa se existe crianças no pula pula\r\n-            console.log()\r\n+            console.log('')\r\n             return;\r\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n"
+                },
+                {
+                    "date": 1644354333511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     }\r\n \r\n     sairDoPulaPula(nome: string) {\r\n         if (this.criancasNoPulaPula.length <= 0){ // testa se existe crianças no pula pula\r\n-            console.log('')\r\n+            console.log('nao ha criancas no pula pula')\r\n             return;\r\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n"
+                },
+                {
+                    "date": 1644354486260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula.pop();\r\n+        this.criancasNoPulaPula.pop(); // remove do pula pula\r\n         this.criancasNaFila.push(crianca);\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354497951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n         this.criancasNoPulaPula.pop(); // remove do pula pula\r\n-        this.criancasNaFila.push(crianca);\r\n+        this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n         let crianca = new Crianca(nome, idade);\r\n"
+                },
+                {
+                    "date": 1644354691997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula.pop(); // remove do pula pula\r\n+        this.criancasNoPulaPula.; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354707767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula.; // remove do pula pula\r\n+        this.criancasNoPulaPula.reduce; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354714446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula.reduce; // remove do pula pula\r\n+        this.criancasNoPulaPula.; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354784971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula.; // remove do pula pula\r\n+        this.criancasNoPulaPula; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354796501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula; // remove do pula pula\r\n+        this.criancasNoPulaPula = ; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354807773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = ; // remove do pula pula\r\n+        this.criancasNoPulaPula = // testa se existe crianças no pula pula; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354815479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = // testa se existe crianças no pula pula; // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.find(x => x.getNome() === nome); // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354824310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = this.criancasNoPulaPula.find(x => x.getNome() === nome); // remove do pula pula\r\n+        this.criancasNoPulaPula; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354833701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula; // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.; // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354839119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = this.criancasNoPulaPula.; // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(); // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354844948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(); // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => ); // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354850308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => ); // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => c.); // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354858781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => c.getNome() !+); // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => c.getNome() !); // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                },
+                {
+                    "date": 1644354867496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         } \r\n         \r\n         let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n \r\n-        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => c.getNome() != crianca.getNome); // remove do pula pula\r\n+        this.criancasNoPulaPula = this.criancasNoPulaPula.filter(c => c.getNome() != crianca.getNome()); // remove do pula pula\r\n         this.criancasNaFila.push(crianca); // e coloca a crianca no final da fila\r\n     }\r\n \r\n     inserirCriancaNaFila(nome: string, idade: number) {\r\n"
+                }
+            ],
+            "date": 1644354257836,
+            "name": "Commit-0",
+            "content": "\r\nconst readline = require (\"readline-sync\");\r\nlet input = () => readline.question(); /// função pra ler o que é escrito que funciona através dos pacotes que foram instalados\r\nlet write = (x: any ) => process.stdout.write(\" \" + x); /// aqui é pra não quebrar a linha \r\n\r\nclass PulaPula {\r\n    criancasNaFila: Array<Crianca>;\r\n    criancasNoPulaPula: Array<Crianca>;\r\n\r\n    constructor() {\r\n        this.iniciarListas();\r\n    }\r\n\r\n    sairDoPulaPula(nome: string) {\r\n        if (this.criancasNoPulaPula.length <= 0) \r\n            return;\r\n        \r\n        let crianca = this.criancasNoPulaPula.find(x => x.getNome() === nome);\r\n\r\n        this.criancasNoPulaPula.pop();\r\n        this.criancasNaFila.push(crianca);\r\n    }\r\n\r\n    inserirCriancaNaFila(nome: string, idade: number) {\r\n        let crianca = new Crianca(nome, idade);\r\n        this.criancasNaFila.push(crianca);\r\n    }\r\n\r\n    entrarNoPulaPula() {\r\n        if(this.criancasNaFila.length > 0) {\r\n            let crianca = this.criancasNaFila.shift();\r\n            this.criancasNoPulaPula.push(crianca);\r\n        }\r\n    }\r\n\r\n    iniciarListas() {\r\n\r\n        this.criancasNaFila = [\r\n            new Crianca(\"Bêbê Monstrinho\", 10),\r\n            new Crianca(\"Wellington Doido\", 12),\r\n            new Crianca(\"Olho da Barbie\", 9),\r\n            new Crianca(\"Gotenks na fusao errada\", 11),\r\n            new Crianca(\"Bin Malabim\", 14),\r\n            new Crianca(\"Eduardo Perna de Alicate\", 12),\r\n            new Crianca(\"Mimia Ragatanga\", 7),\r\n            new Crianca(\"Chupinha\", 14),\r\n            new Crianca(\"Socó\", 12),\r\n            new Crianca(\"Raimundo fei\", 14),\r\n            new Crianca(\"Magal\", 12)\r\n        ];\r\n\r\n        this.criancasNoPulaPula = [\r\n            new Crianca(\"Diarreira\", 14),\r\n            new Crianca(\"Ezequiel Monta Burra\", 11),\r\n            new Crianca(\"Inimigo da Beleza\", 12),\r\n            new Crianca(\"Coró dos Pao\", 10),\r\n            new Crianca(\"Fi do Bill\", 11)\r\n        ]\r\n    }\r\n\r\n}\r\n\r\nclass Crianca {\r\n    nome: string;\r\n    idade: number;\r\n\r\n    constructor(nome:string, idade: number){\r\n        this.nome = nome;\r\n        this.idade = idade;\r\n    }\r\n\r\n    getNome() {\r\n        return this.nome;\r\n    }\r\n\r\n    setNome(nome: string) {\r\n        this.nome = nome;\r\n    }\r\n\r\n    getIdade() {\r\n        return this.idade;\r\n    }\r\n\r\n    setIdade(idade: number) {\r\n        this.idade = idade;\r\n    }\r\n\r\n    toString() {\r\n        return ` [nome: ${this.nome} idade: ${this.idade}] \\n`;\r\n    }\r\n}\r\n\r\nclass Inicilizacao {\r\n    criarPulaPula(): PulaPula {\r\n      write(\"Abrindo o pula-pula para as criancas brincar\");\r\n      return new PulaPula();\r\n    }\r\n    \r\n    menu () {\r\n  \r\n      let pulaPula = this.criarPulaPula();\r\n\r\n      while(true) {\r\n        let linha = input();\r\n        let palavras =  linha.split(\" \"); \r\n\r\n        if(palavras[0] == \"sair\") {\r\n          break;\r\n        } else if (palavras[0] == \"entrar\"){\r\n          pulaPula.inserirCriancaNaFila(palavras[1], palavras[2]);\r\n        } else if (palavras[0] == \"sair\"){\r\n          pulaPula.sairDoPulaPula(palavras[1]);\r\n        } else if (palavras[0] == \"inserirCriancaNaFila\"){\r\n          pulaPula.inserirCriancaNaFila(palavras[1], palavras[2]);\r\n        } else {\r\n          console.log(\"comando inválido, digite novamente! \")\r\n        }\r\n  \r\n    }\r\n  }}\r\n\r\n    let pulaPula = new inicilizacao();\r\n    pulaPula.menu();\r\n"
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+class CoqueiroDeVenus extem Planta {
+
+}

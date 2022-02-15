@@ -1,0 +1,13 @@
+Planta:
+    NomePopular
+    NomeCientifico
+    Cor
+    Altura
+
+    getters e setters
+
+1 - Folha de Prata
+2 - dois amores
+3 - 
+
+    

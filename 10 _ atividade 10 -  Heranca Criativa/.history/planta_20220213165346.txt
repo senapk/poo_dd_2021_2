@@ -1,0 +1,6 @@
+Planta:
+    NomePopular
+    NomeCientifico
+    Cor
+    Altura
+    

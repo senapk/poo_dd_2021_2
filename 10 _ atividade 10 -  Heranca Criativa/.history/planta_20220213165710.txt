@@ -1,0 +1,11 @@
+Planta:
+    NomePopular
+    NomeCientifico
+    Cor
+    Altura
+
+    getters e setters
+
+Folha de Prata
+
+    

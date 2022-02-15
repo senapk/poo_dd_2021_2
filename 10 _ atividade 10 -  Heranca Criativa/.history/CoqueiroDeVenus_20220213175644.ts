@@ -1,0 +1,3 @@
+class CoqueiroDeVenus implements Planta {
+    
+}

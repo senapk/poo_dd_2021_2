@@ -1,0 +1,38 @@
+{
+    "sourceFile": "Especialidade.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1644358285465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644358328058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,4 +3,9 @@\n     Oftamologista = \"OFTAMOLOGISTA\",\r\n     Psiquiatra = \"PSIQUIATRA\"\r\n }\r\n \r\n+enum Especialidade {\r\n+    Cirurgiao = \"CIRURGIAO\",\r\n+    Oftamologista = \"OFTAMOLOGISTA\",\r\n+    Psiquiatra = \"PSIQUIATRA\"\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644358335392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n     Psiquiatra = \"PSIQUIATRA\"\r\n }\r\n \r\n enum Especialidade {\r\n-    Cirurgiao = \"CIRURGIAO\",\r\n-    Oftamologista = \"OFTAMOLOGISTA\",\r\n-    Psiquiatra = \"PSIQUIATRA\"\r\n+    Cirurgiao = 1,\r\n+    Oftamologista = 2,\r\n+    Psiquiatra = 3\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644358351606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n     Psiquiatra = \"PSIQUIATRA\"\r\n }\r\n \r\n enum Especialidade {\r\n-    Cirurgiao = 1,\r\n+    hb = 1,\r\n     Oftamologista = 2,\r\n     Psiquiatra = 3\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644358357255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,7 @@\n }\r\n \r\n enum Especialidade {\r\n     hb = 1,\r\n-    Oftamologista = 2,\r\n+    hb2 = 4,\r\n     Psiquiatra = 3\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644358371191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,4 @@\n     Cirurgiao = \"CIRURGIAO\",\r\n     Oftamologista = \"OFTAMOLOGISTA\",\r\n     Psiquiatra = \"PSIQUIATRA\"\r\n }\r\n-\r\n-enum Especialidade {\r\n-    hb = 1,\r\n-    hb2 = 4,\r\n-    Psiquiatra = 3\r\n-}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1644358285465,
+            "name": "Commit-0",
+            "content": "enum Especialidade {\r\n    Cirurgiao = \"CIRURGIAO\",\r\n    Oftamologista = \"OFTAMOLOGISTA\",\r\n    Psiquiatra = \"PSIQUIATRA\"\r\n}\r\n\r\n"
+        }
+    ]
+}

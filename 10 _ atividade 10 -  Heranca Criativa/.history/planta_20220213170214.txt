@@ -1,0 +1,17 @@
+Planta:
+    NomePopular
+    NomeCientifico
+    Cor
+    Altura
+    PrecisaAguar
+    
+
+    getters e setters
+    podar
+    aguar
+
+1 - folha de Prata
+2 - dois amores
+3 - coqueiro de vênus
+
+    

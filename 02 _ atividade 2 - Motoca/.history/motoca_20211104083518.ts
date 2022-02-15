@@ -1,4 +1,0 @@
-class pessoa {
-    nome:string
-    
-}

@@ -1,0 +1,4 @@
+Planta:
+    Nome
+    Cor
+    

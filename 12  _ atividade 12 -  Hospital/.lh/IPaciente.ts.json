@@ -1,0 +1,22 @@
+{
+    "sourceFile": "IPaciente.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1644357772570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644357781903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n interface IPaciente {\r\n-    adicionarMedico(medico: Medico): void {};\r\n+    adicionarMedico(medico: Medico): void;\r\n     removerMedico(nome: string): void;\r\n     getDiagnostico(): string;\r\n     getId(): string;\r\n     getMedicos(): Array<Medico>;\r\n"
+                }
+            ],
+            "date": 1644357772570,
+            "name": "Commit-0",
+            "content": "interface IPaciente {\r\n    adicionarMedico(medico: Medico): void {};\r\n    removerMedico(nome: string): void;\r\n    getDiagnostico(): string;\r\n    getId(): string;\r\n    getMedicos(): Array<Medico>;\r\n}"
+        }
+    ]
+}

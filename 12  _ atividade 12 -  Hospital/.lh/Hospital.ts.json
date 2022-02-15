@@ -1,0 +1,66 @@
+{
+    "sourceFile": "Hospital.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1644359156882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644359178579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,4 +39,5 @@\n         return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n     }\r\n }\r\n \r\n+let medico1\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359184315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,5 @@\n         return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n     }\r\n }\r\n \r\n-let medico1\n\\ No newline at end of file\n+let medico1 = new Medico()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359193758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,5 @@\n         return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n     }\r\n }\r\n \r\n-let medico1 = new Medico()\n\\ No newline at end of file\n+let medico1 = new Medico(\"Dr\");\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359200300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,5 @@\n         return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n     }\r\n }\r\n \r\n-let medico1 = new Medico(\"Dr\");\n\\ No newline at end of file\n+let medico1 = new Medico(\"Medico1\", );\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359209178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,5 @@\n         return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n     }\r\n }\r\n \r\n-let medico1 = new Medico(\"Medico1\", );\n\\ No newline at end of file\n+let medico1 = new Medico(\"Medico1\", Espec);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359224866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,6 @@\n         return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n     }\r\n }\r\n \r\n-let medico1 = new Medico(\"Medico1\", Espec);\n\\ No newline at end of file\n+let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\r\n+let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359234079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,5 +40,6 @@\n     }\r\n }\r\n \r\n let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\r\n-let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\n\\ No newline at end of file\n+let medico1 = new Medico(\"Medico2\", Especialidade.Oftamologista);\r\n+let medico1 = new Medico(\"Medico2\", Especialidade.Oftamologista);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359241781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,6 +40,6 @@\n     }\r\n }\r\n \r\n let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\r\n-let medico1 = new Medico(\"Medico2\", Especialidade.Oftamologista);\r\n-let medico1 = new Medico(\"Medico2\", Especialidade.Oftamologista);\n\\ No newline at end of file\n+let medico2 = new Medico(\"Medico2\", Especialidade.Oftamologista);\r\n+let medico3 = new Medico(\"Medico3\", Especialidade.Oftamologista);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359248424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,5 +41,6 @@\n }\r\n \r\n let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\r\n let medico2 = new Medico(\"Medico2\", Especialidade.Oftamologista);\r\n-let medico3 = new Medico(\"Medico3\", Especialidade.Oftamologista);\n\\ No newline at end of file\n+let medico3 = new Medico(\"Medico3\", Especialidade.Psiquiatra);\r\n+\r\n"
+                },
+                {
+                    "date": 1644359256083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,4 +43,5 @@\n let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\r\n let medico2 = new Medico(\"Medico2\", Especialidade.Oftamologista);\r\n let medico3 = new Medico(\"Medico3\", Especialidade.Psiquiatra);\r\n \r\n+let paciente1 = \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359262334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,5 +43,5 @@\n let medico1 = new Medico(\"Medico1\", Especialidade.Cirurgiao);\r\n let medico2 = new Medico(\"Medico2\", Especialidade.Oftamologista);\r\n let medico3 = new Medico(\"Medico3\", Especialidade.Psiquiatra);\r\n \r\n-let paciente1 = new Paciente\n\\ No newline at end of file\n+let paciente1 = new Paciente()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1644359319531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,5 +48,5 @@\n let paciente2 = new Paciente(\"covid19\", \"olavo de carvalho2\");\r\n let paciente3 = new Paciente(\"covid0\", \"olavo de carvalho3\");\r\n \r\n \r\n-let Hospital = new Hos\r\n+let Hospital = new Hospital\r\n"
+                }
+            ],
+            "date": 1644359156882,
+            "name": "Commit-0",
+            "content": "class Hospital {\r\n    medicos: Map<string, IMedico>;\r\n    pacientes: Map<string, IPaciente>;\r\n\r\n    constructor() {\r\n        this.medicos = new Map<string, Medico>();\r\n        this.pacientes = new Map<string, Paciente>();\r\n    }\r\n\r\n    adicionarMedico(medico: Medico): void {\r\n        if(this.medicos.has(medico.getId())){\r\n            console.log('medico ja existe');\r\n            return;\r\n        }\r\n\r\n        this.medicos.set(medico.getId(), medico);\r\n        console.log('medico adicionado');\r\n    }\r\n\r\n    adicionarPaciente(paciente: Paciente): void {\r\n        if(this.pacientes.has(paciente.getId())) {\r\n            console.log(\"paciente ja existe\");\r\n            return;\r\n        }\r\n        this.pacientes.set(paciente.getId(), paciente);\r\n        console.log(\"paciente adicionado com sucesso\");\r\n\r\n    }\r\n\r\n    vincular(nomeMedico: string, nomePaciente: string){\r\n        \r\n    }\r\n\r\n    showwAll() {\r\n        this.toString();\r\n    }\r\n\r\n    toString() {\r\n        return `Meds: [${this.medicos.values()}]  Pacs: [${this.pacientes.values()}]`;\r\n    }\r\n}\r\n\r\n"
+        }
+    ]
+}

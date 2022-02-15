@@ -1,0 +1,5 @@
+Planta:
+    Nome
+    Cor
+    Altura
+    Especie

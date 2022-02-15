@@ -1,0 +1,50 @@
+{
+    "sourceFile": "contato.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1644349711578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644349721953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,21 @@\n     nome: string;\r\n     fones: Array<Telefone> = new Array<Telefone>();\r\n \r\n     constructor(nome: string = 'default') {{\r\n-      \r\n+      {\r\n+        {\r\n+          {\r\n+            {\r\n+              {\r\n+                {\r\n+                  \r\n+                }\r\n+              }\r\n+            }\r\n+          }\r\n+        }\r\n+      }\r\n     }\r\n         this.nome = nome;  \r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1644349730214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,21 +7,9 @@\n     nome: string;\r\n     fones: Array<Telefone> = new Array<Telefone>();\r\n \r\n     constructor(nome: string = 'default') {{\r\n-      {\r\n-        {\r\n-          {\r\n-            {\r\n-              {\r\n-                {\r\n-                  \r\n-                }\r\n-              }\r\n-            }\r\n-          }\r\n-        }\r\n-      }\r\n+      {}\r\n     }\r\n         this.nome = nome;  \r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1644349735824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,9 @@\n class Contato {\r\n     nome: string;\r\n     fones: Array<Telefone> = new Array<Telefone>();\r\n \r\n-    constructor(nome: string = 'default') {{\r\n-      {}\r\n-    }\r\n+    constructor(nome: string = 'default') {}\r\n         this.nome = nome;  \r\n     }\r\n \r\n     adicionarTelefone(telefone: Telefone) {\r\n"
+                },
+                {
+                    "date": 1644350185820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n class Contato {\r\n     nome: string;\r\n     fones: Array<Telefone> = new Array<Telefone>();\r\n \r\n-    constructor(nome: string = 'default') {}\r\n+    constructor(nome: string = 'default') {\r\n         this.nome = nome;  \r\n     }\r\n \r\n     adicionarTelefone(telefone: Telefone) {\r\n@@ -52,8 +52,10 @@\n     setFones(telefone: Telefone) {\r\n         this.fones.push(telefone);\r\n     }\r\n \r\n+    toString()\r\n+\r\n }\r\n \r\n class Telefone {\r\n     label: string;\r\n"
+                },
+                {
+                    "date": 1644350196039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,11 @@\n     setFones(telefone: Telefone) {\r\n         this.fones.push(telefone);\r\n     }\r\n \r\n-    toString()\r\n+    toString(){\r\n+      retu\r\n+    }\r\n \r\n }\r\n \r\n class Telefone {\r\n"
+                },
+                {
+                    "date": 1644350201639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         this.fones.push(telefone);\r\n     }\r\n \r\n     toString(){\r\n-      retu\r\n+      return ``;\r\n     }\r\n \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1644350228595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         this.fones.push(telefone);\r\n     }\r\n \r\n     toString(){\r\n-      return `no`;\r\n+      return `n`;\r\n     }\r\n \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1644350261133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         this.fones.push(telefone);\r\n     }\r\n \r\n     toString(){\r\n-      return `nome: ${this.nome} - [${}]`;\r\n+      return `nome: ${this.nome} - [${t}]`;\r\n     }\r\n \r\n }\r\n \r\n"
+                }
+            ],
+            "date": 1644349711578,
+            "name": "Commit-0",
+            "content": "const readline = require (\"readline-sync\");\r\nlet input = () => readline.question(); /// função pra ler o que é escrito que funciona através dos pacotes que foram instalados\r\nlet write = (x: any ) => process.stdout.write(\" \" + x); /// aqui é pra não quebrar a linha \r\n\r\n\r\nclass Contato {\r\n    nome: string;\r\n    fones: Array<Telefone> = new Array<Telefone>();\r\n\r\n    constructor(nome: string = 'default') {{\r\n      \r\n    }\r\n        this.nome = nome;  \r\n    }\r\n\r\n    adicionarTelefone(telefone: Telefone) {\r\n        if(this.validaTelefone(telefone.getNumero()))\r\n            this.fones.push(telefone);\r\n    }\r\n\r\n    adicionarTelefoneEmLotes(telefones: Array<Telefone>) {\r\n        telefones.forEach(t => {\r\n            if(this.validaTelefone(t.getNumero()))\r\n                this.fones.push(t);\r\n        });\r\n\r\n    }\r\n\r\n    removerTelefone(indice: number) {\r\n        let telefone = this.fones.at(indice);\r\n\r\n        if(telefone !== undefined)\r\n            this.fones.push(telefone);\r\n    }\r\n\r\n    validaTelefone(numero: string): boolean {\r\n        let validarTelefone = new RegExp('^[0-9]{2}-([0-9]{8}|[0-9]{9})');\r\n        \r\n        return validarTelefone.test(numero);\r\n    }\r\n\r\n    getNome() {\r\n        return this.nome;\r\n    }\r\n\r\n    setNome(nome: string) {\r\n        this.nome = nome;\r\n    }\r\n\r\n    getFones() {\r\n        return this.fones;\r\n    }\r\n\r\n    setFones(telefone: Telefone) {\r\n        this.fones.push(telefone);\r\n    }\r\n\r\n}\r\n\r\nclass Telefone {\r\n    label: string;\r\n    numero: string;\r\n\r\n    constructor(label: string, numero: string){\r\n        this.label = label;\r\n        this.numero = numero;\r\n    }\r\n\r\n    getLabel() {\r\n        return this.label;\r\n    }\r\n\r\n    setLabel(label: string) {\r\n        this.label = label;\r\n    }\r\n\r\n    getNumero() {\r\n        return this.numero;\r\n    }\r\n\r\n    setNumero(numero: string) {\r\n        this.numero = numero;\r\n    }\r\n\r\n    toString() {\r\n        return `${this.label}:${this.numero}`\r\n    }\r\n}\r\n\r\nclass inicilizacao {\r\n    criarContato(): Contato {\r\n      write(\"informe o nome do contato\");\r\n      let contato = input ();\r\n\r\n      return new Contato (contato);\r\n    }\r\n  \r\n  \r\n    help () {\r\n      write (\"comandos: \\n\");\r\n      write (\"iniciar: <calibre> <tamanho do tambor>\")\r\n      write (\"inserirGrafiteNoTambor: <calibre> <dureza> <tamanho> \")\r\n      write (\"inserirGrafiteNoBico\")\r\n      write (\"escrever: <total de folhas que deseja escrever>\")\r\n  \r\n    }\r\n    \r\n    menu () {\r\n      let contato = this.criarContato();\r\n\r\n      while(true) {\r\n        let linha = input();\r\n        let palavras =  linha.split(\" \"); \r\n\r\n        if(palavras[0] == \"sair\") {\r\n          break;\r\n        } else if (palavras[0] == \"criar\"){\r\n          contato.setNome(palavras[1]);\r\n          write(`Este eh o contato de: ${contato.getNome}.`);\r\n        } else if (palavras[0] == \"adicionarTelefone\"){\r\n          let fone = new Telefone(palavras[1], palavras[2]);\r\n          contato.adicionarTelefone(fone);\r\n          write(`${contato.getFones()}`);\r\n        } else if (palavras[0] == \"adicionarTelefoneEmLotes\"){\r\n          // nao consegui fazer\r\n        } else if (palavras[0] == \"removerTelefone\"){\r\n          contato.removerTelefone(palavras[1]);\r\n        } else {\r\n          console.log(\"comando inválido, digite novamente! \")\r\n        }\r\n  \r\n    }\r\n  }}\r\n\r\n    let iniciar = new inicilizacao();\r\n    iniciar.menu();\r\n\r\n"
+        }
+    ]
+}
